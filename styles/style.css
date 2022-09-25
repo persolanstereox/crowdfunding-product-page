@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+header {
+  min-height: 20rem;
+  background-image: url("/images/image-hero-desktop.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+header nav {
+  width: 100%;
+  padding: 3rem 10% 0;
+  display: flex;
+  justify-content: space-between;
+}
+header nav img {
+  width: 13vw;
+}
+header nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+header nav ul li {
+  margin: 0 1rem;
+}
+header nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+}
+
+main {
+  width: 100%;
+  padding: 5%;
+}
+
+.section-container {
+  margin: 0 auto;
+  max-width: 50rem;
+}
+
+section {
+  width: 100%;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+}
+
+.description {
+  min-height: 16rem;
+  text-align: center;
+  border: solid 2px blue;
+}
+.description .logo {
+  position: relative;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.two-sides--container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8% 0;
+}
+.two-sides--container .open-modal {
+  width: 14rem;
+}
+.two-sides--container .btn-bookmark {
+  width: 40%;
+}
+
+.open-modal {
+  background-color: hsl(176deg, 50%, 47%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+}
+
+.colletion {
+  min-height: 13rem;
+  border: solid 2px green;
+}
+
+.donating {
+  min-height: 60rem;
+  border: solid 2px yellow;
+}/*# sourceMappingURL=style.css.map */

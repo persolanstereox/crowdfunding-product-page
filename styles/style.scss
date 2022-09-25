@@ -1,0 +1,103 @@
+@use '../styles/variables';
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  // background-color: variables.$Dark-gray;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Space Grotesk', sans-serif;
+}
+header {
+  min-height: 20rem;
+  background-image: url('/images/image-hero-desktop.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  // background-attachment: fixed;
+  background-position: center;
+
+  nav {
+    width: 100%;
+    padding: 3rem 10% 0;
+    display: flex;
+    justify-content: space-between;
+    img {
+      width: 13vw;
+    }
+    ul {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      li {
+        margin: 0 1rem;
+        a {
+          text-decoration: none;
+          color: white;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
+main {
+  width: 100%;
+  padding: 5%;
+}
+.section-container {
+  margin: 0 auto;
+
+  max-width: 50rem;
+
+  // background-color: variables.$DarkCyan;
+  // border: solid 2px red;
+}
+section {
+  width: 100%;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+}
+
+/// First Section
+
+.description {
+  min-height: 16rem;
+  text-align: center;
+  border: solid 2px blue;
+  .logo {
+    position: relative;
+    left: 0;
+    transform: translateY(-50%);
+  }
+}
+.two-sides--container {
+  @include variables.flex-space-between();
+  padding: variables.$most-often-padding;
+  .open-modal {
+    width: 14rem
+  }
+  .btn-bookmark {
+    // max-width: 14rem;
+    width: 40%;
+  }
+}
+.open-modal {
+  @include variables.modal-button();
+}
+
+/// Second Section
+
+.colletion {
+  min-height: 13rem;
+  border: solid 2px green;
+}
+
+/// Third Section
+
+.donating {
+  min-height: 60rem;
+  border: solid 2px yellow;
+}
