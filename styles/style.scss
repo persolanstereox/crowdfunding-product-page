@@ -6,11 +6,13 @@
   margin: 0;
   padding: 0;
 }
+
 body {
   // background-color: variables.$Dark-gray;
   height: 100vh;
   width: 100vw;
   font-family: 'Space Grotesk', sans-serif;
+  overflow-x: hidden;
 }
 header {
   min-height: 20rem;
@@ -45,59 +47,374 @@ header {
 }
 main {
   width: 100%;
-  padding: 5%;
+  padding: 4rem 5%;
 }
 .section-container {
   margin: 0 auto;
 
   max-width: 50rem;
-
-  // background-color: variables.$DarkCyan;
-  // border: solid 2px red;
 }
 section {
   width: 100%;
   margin-bottom: 2rem;
   border-radius: 10px;
+  // border: solid 0.1rem variables.$Dark-gray;
+  border: solid 0.1rem rgb(218, 223, 224);
+  box-shadow: -2px 9px 31px -15px rgba(66, 68, 90, 0.26);
+}
+button {
+  cursor: pointer;
 }
 
 /// First Section
 
 .description {
-  min-height: 16rem;
+  min-height: 17rem;
   text-align: center;
-  border: solid 2px blue;
+  // border: solid 2px blue;
   .logo {
     position: relative;
     left: 0;
     transform: translateY(-50%);
+  }
+  p {
+    padding: variables.$most-often-padding;
   }
 }
 .two-sides--container {
   @include variables.flex-space-between();
   padding: variables.$most-often-padding;
   .open-modal {
-    width: 14rem
+    width: 14rem;
+    height: 4rem;
+    font-size: 1.1rem;
+    margin-right: 10px;
   }
   .btn-bookmark {
-    // max-width: 14rem;
-    width: 40%;
+    width: 13rem;
+    height: 4rem;
+    border-radius: 50px;
+    border: none;
+    color: variables.$Dark-gray;
+    font-size: 1.1rem;
+    font-family: 'Space Grotesk', sans-serif;
+
+    position: relative;
+    img {
+      position: absolute;
+      left: 0px;
+      bottom: 0;
+      height: 100%;
+      transition: right 3s;
+      // &::after {
+      //   translate: 80px;
+      // }
+    }
+    span {
+      margin-right: -27%;
+    }
   }
+}
+h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+p {
+  color: variables.$Dark-gray;
+  font-size: 1rem;
 }
 .open-modal {
   @include variables.modal-button();
+  transition: background-color 0.5s;
+  &:hover {
+    background-color: variables.$DarkCyan;
+  }
+}
+.bookmarked {
+  span {
+    color: variables.$DarkCyan;
+  }
+  
+  img {
+    color: variables.$DarkCyan;
+  }
 }
 
 /// Second Section
 
 .colletion {
-  min-height: 13rem;
-  border: solid 2px green;
+  min-height: 14rem;
+  padding: variables.$most-often-padding;
 }
-
+.funding__info--container {
+  display: flex;
+  margin-top: 3rem;
+  gap: 30px;
+}
+.info-box {
+  width: 14rem;
+}
+h5 {
+  font-size: 2.1rem;
+}
+.right-border {
+  border-right: solid 0.1rem variables.$Dark-gray;
+}
+.progress-container {
+  width: 100%;
+  height: 1rem;
+  border-radius: variables.$curved-border;
+  background-color: variables.$Dark-gray;
+  margin-top: 2rem;
+  .progress {
+    width: 89%;
+    height: 100%;
+    background-color: variables.$ModerateCyan;
+    border-radius: variables.$curved-border;
+    transition: width 1s;
+  }
+}
 /// Third Section
 
 .donating {
-  min-height: 60rem;
-  border: solid 2px yellow;
+  min-height: 70rem;
+  // border: solid 2px yellow;
+  padding: variables.$most-often-padding;
+  h2,
+  p {
+    margin-bottom: 2rem;
+  }
+  h2 {
+    margin-top: 3rem;
+  }
+}
+.type_reward--container {
+  border: solid 0.1rem rgb(218, 223, 224);
+  min-height: 15rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  padding: 0 4% 2rem;
+
+  .open-modal {
+    width: 10rem;
+    height: 3rem;
+  }
+}
+.reward-name__flex-box,
+.selecting-reward__flex-box {
+  @include variables.flex-space-between();
+}
+.reward-name__flex-box {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  p {
+    color: variables.$ModerateCyan;
+  }
+}
+.how-many-left__box {
+  display: flex;
+  h5 {
+    margin-right: 0.5rem;
+  }
+  p {
+    margin-bottom: 0;
+    margin-top: 0.8rem;
+  }
+}
+.out-of-stock {
+  opacity: 0.5;
+  .open-modal {
+    background-color: variables.$Dark-gray;
+  }
+}
+#reward--3 {
+  cursor: auto;
+}
+
+/// Modal
+.modal-completed {
+  max-width: 32rem;
+  min-height: 25rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  img {
+    height: 5.5rem;
+    margin-top: 1rem;
+  }
+  h2 {
+    margin-top: 1.5rem;
+  }
+}
+.display-changes {
+  @include variables.modal-button();
+  width: 6.5rem;
+  height: 2.7rem;
+  margin-top: 1rem;
+  transition: background-color 0.5s;
+  &:hover {
+    background-color: variables.$DarkCyan;
+  }
+}
+.modal,
+.modal-completed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  // min-height: 56rem;
+  width: 100%;
+  // max-width: 40rem;
+  border-radius: 10px;
+
+  background-color: white;
+  box-shadow: 0 4rem 6rem rgb(0 0 0 / 30%);
+  z-index: 1000;
+  padding: 2rem 2.5rem 2rem;
+}
+.modal {
+  max-width: 40rem;
+  padding: 2rem 2.5rem 2rem;
+}
+.modal-type-reward {
+  min-height: 8rem;
+  border: solid 0.1rem rgb(218, 223, 224);
+  border-radius: 8px;
+  margin-top: 1.5rem;
+}
+
+.box,
+.no_reward,
+.sold_out {
+  input {
+    position: relative;
+    top: -6px;
+    height: 2rem;
+    // &:checked {
+    //   transform: scale(0.5);
+    // }
+  }
+}
+// input[type='radio']:checked {
+//   transform: scale(0.5);
+
+// }
+.selected-reward {
+  border: solid 2px variables.$ModerateCyan;
+  
+}
+.modal-main-question {
+  margin-top: 1rem;
+}
+.box,
+.no_reward,
+.sold_out,
+.choice-reward {
+  padding: 1.5rem 4% 0 4%;
+}
+.modal-reward-info-box {
+  margin: 0 0 2rem 1rem;
+}
+.modal-reward-description {
+  margin-top: 1rem;
+}
+.box,
+.no_reward,
+.sold_out,
+.lebel-price-box,
+.modal-left-box,
+.enter-pledge-box {
+  display: flex;
+}
+.label-price-left-box,
+.choice-reward {
+  @include variables.flex-space-between();
+  // margin-bottom: 1rem;
+}
+.lebel-price-box {
+  gap: 1rem;
+  p {
+    color: variables.$ModerateCyan;
+  }
+  
+    
+}
+.to-choose {
+  transition: color 0.2s ;
+  cursor: pointer;
+  &:hover {
+    color: variables.$ModerateCyan;
+  }
+}
+
+.modal-left-box {
+  gap: 0.3rem;
+}
+.how-many-left {
+  color: black;
+}
+.inpu-pledge-container {
+  input {
+    width: 5rem;
+    height: 2.8rem;
+    border: solid 0.1rem rgb(218, 223, 224);
+    border-radius: variables.$curved-border;
+    padding-left: 0.8rem;
+    font-size: 0.9rem;
+    outline: none;
+    text-align: center;
+    &:checked {
+      color: white;
+    }
+    &:focus {
+      border: solid 1px variables.$ModerateCyan;
+    }
+  }
+  label {
+    position: relative;
+    right: 67px;
+    color: rgb(218, 223, 224);
+    font-size: 0.9rem;
+  }
+}
+.confirm-pledge {
+  @include variables.modal-button();
+  width: 7rem;
+  height: 2.8rem;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: variables.$DarkCyan;
+  }
+}
+.choice-reward {
+  border-top: solid 0.1rem rgb(218, 223, 224);
+  margin-bottom: 1rem;
+  p {
+    padding: 0.7rem 0 1%;
+  }
+}
+.sold_out {
+  opacity: 0.5;
+}
+
+.close-modal {
+  position: relative;
+  left: 99%;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  z-index: 100;
+}
+.hidden {
+  display: none;
 }
