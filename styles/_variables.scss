@@ -2,7 +2,8 @@ $ModerateCyan: hsl(176, 50%, 47%);
 $DarkCyan: hsl(176, 72%, 28%);
 $Black: hsl(0, 0%, 0%);
 $Dark-gray: hsl(0, 0%, 48%);
-$most-often-padding: 0 8% 0;
+$most-often-padding: 0 8% 2rem;
+$curved-border: 50px;
 
 @mixin flex-space-between {
   display: flex;
@@ -12,5 +13,6 @@ $most-often-padding: 0 8% 0;
   background-color: $ModerateCyan;
   color: white;
   border: none;
-  border-radius: 50px;
+  border-radius: $curved-border;
+  font-family: 'Space Grotesk', sans-serif;
 }
