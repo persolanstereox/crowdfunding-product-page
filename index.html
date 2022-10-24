@@ -12,7 +12,7 @@
       <nav>
         <img src="images/logo.svg" alt="logo" />
         <ul>
-          <li>
+          <li class="test-scroll">
             <a href="#" class="nav-about">About</a>
           </li>
           <li>
@@ -22,6 +22,11 @@
             <a href="#">Get Started </a>
           </li>
         </ul>
+        <button class="burger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </button>
       </nav>
     </header>
     <main>
@@ -40,9 +45,11 @@
           <div class="two-sides--container">
             <button class="open-modal">Back this project</button>
             <button class="btn-bookmark">
-              <img class="bookmark" src="images/icon-bookmark.svg" alt="icon-bookmark" /><span class="span-bookmark"
-                >Bookmark</span
-              >
+              <img
+                class="bookmark"
+                src="images/icon-bookmark.svg"
+                alt="icon-bookmark"
+              /><span class="span-bookmark">Bookmark</span>
             </button>
           </div>
         </section>
@@ -130,23 +137,32 @@
                 <h5>0</h5>
                 <p>left</p>
               </div>
-              <button id="reward--3" class="open-modal" disabled>Select Reward</button>
+              <button id="reward--3" class="open-modal" disabled>
+                Select Reward
+              </button>
             </div>
           </div>
         </section>
       </div>
-      <div class="modal hidden ">
-        <img class="close-modal" src="images/icon-close-modal.svg" alt="">
+      <div class="modal hidden">
+        <img class="close-modal" src="images/icon-close-modal.svg" alt="" />
         <h2>Back this project</h2>
         <p class="modal-main-question">
           Want to support us in bringing Mastercraft Bamboo Monitor Riser out in
           the world?
         </p>
-        
+
         <div id="reward-executable--0" class="modal-type-reward no_reward">
-          <input id="no-reward" type="radio" />
+          <div>
+            <form id="form--0" class=" form-button" action="">
+              <button id="no-reward" class="btn-choose-reward hidden"></button>
+            </form>
+          </div>
+
           <div class="modal-reward-info-box">
-            <label class="to-choose" for="no-reward">Pledge with no reward</label>
+            <label class="to-choose" for="no-reward"
+              >Pledge with no reward</label
+            >
             <p class="modal-reward-description">
               Choose to support us without a reward if you simply believe in our
               project. As a backer, you will be signed up to receive product
@@ -161,62 +177,86 @@
         </div>
         <div id="reward-executable--1" class="modal-type-reward">
           <div class="box">
-          <input id="bamboo-stand" type="radio" />
-          <div class="modal-reward-info-box">
-            <div class="label-price-left-box">
-              <div class="lebel-price-box">
-                <label class="to-choose" for="bamboo-stand">Bamboo Stand</label>
-                <p>Pledge $25 or more</p>
-              </div>
-              <div class="modal-left-box">
-                <p class="how-many-left scope--0">101</p>
-                <p>left</p>
-              </div>
+            <div>
+              <form id="form--1" class="form-button" action="">
+                <button class=" btn-choose-reward hidden"></button>
+              </form>
             </div>
-            <p class="modal-reward-description">
-              You get an ergonomic stand made of natural bamboo. You've helped
-              us launch our promotional campaign, and you’ll be added to a
-              special Backer member list.
-            </p>
+            <div class="modal-reward-info-box">
+              <div class="label-price-left-box">
+                <div class="lebel-price-box">
+                  <label class="to-choose" for="bamboo-stand"
+                    >Bamboo Stand</label
+                  >
+                  <p>Pledge $25 or more</p>
+                </div>
+                <div class="modal-left-box">
+                  <p class="how-many-left scope--0">101</p>
+                  <p>left</p>
+                </div>
+              </div>
+              <p class="modal-reward-description">
+                You get an ergonomic stand made of natural bamboo. You've helped
+                us launch our promotional campaign, and you’ll be added to a
+                special Backer member list.
+              </p>
+            </div>
           </div>
-        </div>
           <div id="choice-reward--1" class="choice-reward hidden">
             <p>Enter your pledge</p>
             <div class="enter-pledge-box">
               <div class="inpu-pledge-container">
-                <input id="pledge--0" class="input-pledge" type="number" min="25" max="74" />
+                <input
+                  id="pledge--0"
+                  class="input-pledge"
+                  type="number"
+                  min="25"
+                  max="74"
+                />
                 <label for="pledge--0">$</label>
               </div>
               <button class="confirm-pledge">Continue</button>
             </div>
           </div>
         </div>
-        <div id="reward-executable--2" class="modal-type-reward ">
+        <div id="reward-executable--2" class="modal-type-reward">
           <div class="box">
-          <input id="black-edition-stand" type="radio" />
-          <div class="modal-reward-info-box">
-            <div class="label-price-left-box">
-              <div class="lebel-price-box">
-                <label class="to-choose" for="black-edition-stand">Black Edition Stand</label>
-                <p>Pledge $75 or more</p>
-              </div>
-              <div class="modal-left-box">
-                <p class="how-many-left scope--1">64</p>
-                <p>left</p>
-              </div>
+            <div>
+              <form id="form--2" class="form-button" action="">
+                <button class="btn-choose-reward hidden"></button>
+              </form>
             </div>
-            <p class="modal-reward-description">
-              You get a Black Special Edition computer stand and a personal
-              thank you. You’ll be added to our Backer member list. Shipping is
-              included.
-            </p>
+            <div class="modal-reward-info-box">
+              <div class="label-price-left-box">
+                <div class="lebel-price-box">
+                  <label class="to-choose" for="black-edition-stand"
+                    >Black Edition Stand</label
+                  >
+                  <p>Pledge $75 or more</p>
+                </div>
+                <div class="modal-left-box">
+                  <p class="how-many-left scope--1">64</p>
+                  <p>left</p>
+                </div>
+              </div>
+              <p class="modal-reward-description">
+                You get a Black Special Edition computer stand and a personal
+                thank you. You’ll be added to our Backer member list. Shipping
+                is included.
+              </p>
+            </div>
           </div>
-        </div>
           <div id="choice-reward--2" class="choice-reward hidden">
             <p>Enter your pledge</p>
             <div class="enter-pledge-box">
               <div class="inpu-pledge-container">
-                <input id="pledge--1" class="input-pledge" type="number" min="75" max="199" />
+                <input
+                  id="pledge--1"
+                  class="input-pledge"
+                  type="number"
+                  min="75"
+                  max="199"
+                />
                 <label for="pledge--1">$</label>
               </div>
               <button class="confirm-pledge">Continue</button>
@@ -224,7 +264,11 @@
           </div>
         </div>
         <div class="modal-type-reward sold_out">
-          <input id="mahogany-special-edition" type="radio" disabled />
+          <div>
+            <form  class="form-button" action="">
+              <button class="hidden"  disabled></button>
+            </form>
+          </div>
           <div class="modal-reward-info-box">
             <div class="label-price-left-box">
               <div class="lebel-price-box">
@@ -242,16 +286,18 @@
               Shipping is included.
             </p>
           </div>
-          
-          </div>
+
+          <!-- </div> prettier błąd -->
         </div>
-      
       </div>
       <div class="modal-completed hidden">
-        <img src="images/icon-check.svg" alt="check">
+        <img src="images/icon-check.svg" alt="check" />
         <h2>Thanks for your support!</h2>
-        <p>Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
-          an email once our campaign is completed.</p>
+        <p>
+          Your pledge brings us one step closer to sharing Mastercraft Bamboo
+          Monitor Riser worldwide. You will get an email once our campaign is
+          completed.
+        </p>
         <button class="display-changes">Got it!</button>
       </div>
       <div class="overlay hidden"></div>
