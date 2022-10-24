@@ -8,7 +8,6 @@
 }
 
 body {
-  // background-color: variables.$Dark-gray;
   height: 100vh;
   width: 100vw;
   font-family: 'Space Grotesk', sans-serif;
@@ -19,7 +18,7 @@ header {
   background-image: url('/images/image-hero-desktop.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  // background-attachment: fixed;
+
   background-position: center;
 
   nav {
@@ -27,8 +26,10 @@ header {
     padding: 3rem 10% 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    position: relative;
     img {
-      width: 13vw;
+      width: 15rem;
     }
     ul {
       display: flex;
@@ -40,9 +41,37 @@ header {
           text-decoration: none;
           color: white;
           font-size: 1.2rem;
+          position: relative;
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 0.15rem;
+            border-radius: 10px;
+            background-color: white;
+            transition: 0.3s ease-in-out;
+          }
+          &:hover::after {
+            width: 100%;
+          }
         }
       }
     }
+  }
+}
+.burger {
+  background: transparent;
+  border: none;
+  display: none;
+  .line {
+    width: 3rem;
+    height: 0.3rem;
+    background: white;
+    margin: 0.7rem;
+    border-radius: 20px;
+    transition: 0.5s ease-in-out;
   }
 }
 main {
@@ -58,7 +87,7 @@ section {
   width: 100%;
   margin-bottom: 2rem;
   border-radius: 10px;
-  // border: solid 0.1rem variables.$Dark-gray;
+
   border: solid 0.1rem rgb(218, 223, 224);
   box-shadow: -2px 9px 31px -15px rgba(66, 68, 90, 0.26);
 }
@@ -71,7 +100,7 @@ button {
 .description {
   min-height: 17rem;
   text-align: center;
-  // border: solid 2px blue;
+
   .logo {
     position: relative;
     left: 0;
@@ -106,9 +135,6 @@ button {
       bottom: 0;
       height: 100%;
       transition: right 3s;
-      // &::after {
-      //   translate: 80px;
-      // }
     }
     span {
       margin-right: -27%;
@@ -133,10 +159,13 @@ p {
 .bookmarked {
   span {
     color: variables.$DarkCyan;
+    font-weight: bold;
+    letter-spacing: 0.5px;
   }
-  
+
   img {
-    color: variables.$DarkCyan;
+    filter: invert(34%) sepia(25%) saturate(5081%) hue-rotate(156deg)
+      brightness(98%) contrast(101%);
   }
 }
 
@@ -178,7 +207,7 @@ h5 {
 
 .donating {
   min-height: 70rem;
-  // border: solid 2px yellow;
+
   padding: variables.$most-often-padding;
   h2,
   p {
@@ -205,10 +234,13 @@ h5 {
   @include variables.flex-space-between();
 }
 .reward-name__flex-box {
-  margin-top: 2rem;
+  margin: 2rem 0 2rem;
   font-size: 1.2rem;
   p {
     color: variables.$ModerateCyan;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
   }
 }
 .how-many-left__box {
@@ -247,6 +279,9 @@ h5 {
   h2 {
     margin-top: 1.5rem;
   }
+  p {
+    text-align: center;
+  }
 }
 .display-changes {
   @include variables.modal-button();
@@ -277,12 +312,29 @@ h5 {
 .modal {
   max-width: 40rem;
   padding: 2rem 2.5rem 2rem;
+  // overflow: scroll;
 }
 .modal-type-reward {
   min-height: 8rem;
   border: solid 0.1rem rgb(218, 223, 224);
   border-radius: 8px;
   margin-top: 1.5rem;
+}
+.form-button {
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  border: solid 1px rgb(218, 223, 224);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  button {
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    border: none;
+    background-color: variables.$ModerateCyan;
+  }
 }
 
 .box,
@@ -292,18 +344,11 @@ h5 {
     position: relative;
     top: -6px;
     height: 2rem;
-    // &:checked {
-    //   transform: scale(0.5);
-    // }
   }
 }
-// input[type='radio']:checked {
-//   transform: scale(0.5);
 
-// }
 .selected-reward {
   border: solid 2px variables.$ModerateCyan;
-  
 }
 .modal-main-question {
   margin-top: 1rem;
@@ -338,12 +383,11 @@ h5 {
   p {
     color: variables.$ModerateCyan;
   }
-  
-    
 }
 .to-choose {
-  transition: color 0.2s ;
+  transition: color 0.2s;
   cursor: pointer;
+  font-weight: 700;
   &:hover {
     color: variables.$ModerateCyan;
   }
@@ -414,6 +458,166 @@ h5 {
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(2px);
   z-index: 100;
+}
+
+// Media queries
+
+@media only screen and (max-height: 1150px) {
+  .modal {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100vh;
+    border-radius: 0;
+  }
+}
+@media only screen and (max-width: 740px) {
+  .funding__info--container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .right-border {
+    border-right: none;
+    border-bottom: solid 0.1rem rgb(218, 223, 224);
+    p {
+      margin-bottom: 1.3rem;
+    }
+  }
+  .active {
+    display: block;
+  }
+  .burger {
+    display: block;
+
+    .active {
+      &:first-child {
+        transform: translateY(-300px);
+      }
+      &:nth-child(2) {
+        transform: rotate(-405deg) translateY(10px);
+      }
+      &:nth-child(3) {
+        transform: rotate(405deg) translateY(-12px);
+      }
+    }
+  }
+  header nav {
+    padding: 2rem 10% 0;
+    img {
+      width: 10rem;
+    }
+    ul {
+      display: none;
+      position: absolute;
+      right: 10vw;
+      top: 7rem;
+      background: white;
+      height: 14rem;
+      width: 80vw;
+      flex-direction: column;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: -3px 24px 100px 20px rgba(66, 68, 90, 1);
+      li {
+        margin: 0;
+        padding: 1.5rem;
+        width: 100%;
+        cursor: pointer;
+
+        &:nth-child(2) {
+          border-top: 0.1rem solid rgb(218, 223, 224);
+          border-bottom: 0.1rem solid rgb(218, 223, 224);
+        }
+        a {
+          color: black;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .modal-completed p {
+      text-align: center;
+    }
+  }
+}
+@media only screen and (max-width: 540px) {
+  header {
+    background-image: url('/images/image-hero-mobile.jpg');
+  }
+  .description {
+    padding: 0 3%;
+  }
+  .two-sides--container {
+    .open-modal {
+      width: 77%;
+    }
+    .btn-bookmark {
+      width: 4rem;
+      span {
+        display: none;
+      }
+    }
+  }
+  .type_reward--container {
+    padding: 0 7% 2rem;
+  }
+  .reward-name__flex-box,
+  .selecting-reward__flex-box {
+    display: block;
+  }
+  .how-many-left__box {
+    margin-bottom: 1rem;
+  }
+  .modal {
+    height: 100vh;
+    top: 0;
+    left: 0;
+
+    transform: none;
+    border-radius: 0;
+  }
+  .lebel-price-box {
+    display: block;
+  }
+  .choice-reward {
+    display: block;
+  }
+  .choice-reward p {
+    text-align: center;
+  }
+  .enter-pledge-box {
+    justify-content: center;
+    margin-top: 1.5rem;
+    gap: 10px;
+    .input-pledge,
+    .confirm-pledge {
+      width: 10rem;
+    }
+    label {
+      right: 140px;
+    }
+  }
+}
+
+// media query only for modal enter pledge input
+
+@media only screen and (max-width: 456px) {
+  .enter-pledge-box label {
+    left: 22px;
+    bottom: 33px;
+  }
+}
+@media only screen and (max-width: 351px) {
+  .enter-pledge-box {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .inpu-pledge-container {
+    width: 10rem;
+  }
 }
 .hidden {
   display: none;
